@@ -1,0 +1,39 @@
+"syntax highlighting -- configuracao de cores
+"de acordo com tipo de arquivo aberto
+syntax on      
+ 
+"sintaxe para fundo escuro
+set background=dark
+ 
+"mostra a posicao do cursor
+set ruler
+ 
+"Recua cada linha para o mesmo nivel da linha superior
+set autoindent
+ 
+"ShowMatch: Toda vez que um parentese, colchete
+"ou chave 'e aberto,  o Vi mostra onde este foi aberto.
+"Caso contrario, o Vi deixa em vermelho a entidade sem o seu par
+set sm
+ 
+"Mostra o nome do arquivo na parte superior do prompt
+set title
+ 
+"Define o tamanho do arquivo de historico em numeros de linhas
+set hi=5000
+ 
+"destacar a palavra pesquisada
+set hlsearch
+ 
+"busca incrementada
+set incsearch
+ 
+filetype plugin on
+ 
+"Guarda a posicao do cursor dentro do arquivo aberto pelo vim
+autocmd BufReadPost *
+\ if ! exists("g:leave_my_cursor_position_alone") |
+\ if line("'\"") > 0 && line ("'\"") <= line("$") |
+\ exe "normal g'\"" |
+\ endif |
+\ endif
